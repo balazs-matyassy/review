@@ -7,6 +7,7 @@ import java.util.List;
 @Entity
 public class Product {
 
+    // https://www.baeldung.com/hibernate-identifiers
     @Id
     @GeneratedValue
     private Long id;
