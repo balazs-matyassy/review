@@ -26,6 +26,9 @@ public class Product {
     // orphanRemoval = true -> csomagot nem lehet "eladni", nem lehet új tulajdonosa
     // review.setProduct(newProduct) törli a reviewt -> nem tud gazdát cserélni
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    // amikor a szülő oldaláról lekérdezzük az adatokat,
+    // akkor csökkenő sorrendben kapjuk őket vissza
+    @OrderBy("createdAt DESC")
     private List<Review> reviews = new ArrayList<>();
 
     public Product() {
