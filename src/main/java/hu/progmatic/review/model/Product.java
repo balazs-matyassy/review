@@ -12,6 +12,8 @@ public class Product {
     @GeneratedValue
     private Long id;
 
+    // minden név egyedi
+    @Column(unique = true)
     private String name;
 
     // hosszú szövegek tárolása,
