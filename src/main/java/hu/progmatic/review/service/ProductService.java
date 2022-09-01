@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.List;
 
 // magasabb szintű funkciók
 @Service
@@ -39,6 +40,10 @@ public class ProductService {
 
         reviewRepository.save(review1);
         reviewRepository.save(review2);
+    }
+
+    public List<Product> getAllProducts() {
+        return (List<Product>) productRepository.findAll();
     }
 
 }
