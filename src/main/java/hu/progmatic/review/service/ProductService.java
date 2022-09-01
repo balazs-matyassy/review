@@ -28,11 +28,18 @@ public class ProductService {
     // COMMIT -> módosítások véglegesítése
     @Transactional
     public void createTestData() {
-        Product product = new Product("Product1", "Hello World", 5000);
-        Review review1 = new Review(product,":)", LocalDateTime.now());
-        Review review2 = new Review(product,":)", LocalDateTime.now());
+        Product product1 = new Product("Product1", "Hello World", 5000);
+        Review review1 = new Review(product1,"Nagyon jó! :)", LocalDateTime.now());
+        Review review2 = new Review(product1,"Szuper :)", LocalDateTime.now());
 
-        productRepository.save(product);
+        Product product2 = new Product("Product2", "I <3 Java!", 15000);
+        Product product3 = new Product("Product3", "Java is cool!", 25000);
+        Product product4 = new Product("Product4", "C++ vs Java!", 8500);
+
+        productRepository.save(product1);
+        productRepository.save(product2);
+        productRepository.save(product3);
+        productRepository.save(product4);
 
         /* if (true) {
             throw new RuntimeException();

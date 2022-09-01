@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Termékek megjelenítése</title>
+</head>
+<body>
+
+<div style="border: 1px solid gray;" data-th-each="product: ${products}">
+    <h1 data-th-text="${product.name}"></h1>
+    <p data-th-text="${product.description}"></p>
+    <p data-th-if="${product.price > 1000}">DRÁGA</p>
+    <p data-th-unless="${product.price > 1000}">OLCSÓ</p>
+
+    <ul>
+        <li data-th-each="review: ${product.reviews}" data-th-text="${review.description}"></li>
+    </ul>
+</div>
+
+</body>
+</html>
