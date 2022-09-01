@@ -25,4 +25,12 @@ public class ProductController {
         return "products";
     }
 
+    @GetMapping("/expensive")
+    public String expensivePage(Model model) {
+        List<Product> products = productService.getExpensiveProducts();
+        model.addAttribute("products", products);
+
+        return "products";
+    }
+
 }

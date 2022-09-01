@@ -18,4 +18,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     // SELECT * FROM product WHERE name LIKE '%:name%' ORDER BY name;
     List<Product> findByNameContainingOrderByName(String name);
 
+    List<Product> findByPriceGreaterThanEqualOrderByPriceDesc(int price);
+
 }

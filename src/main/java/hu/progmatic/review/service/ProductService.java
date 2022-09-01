@@ -51,12 +51,16 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-        Optional<Product> result = productRepository.findByName("aaa");
+        // Optional<Product> result = productRepository.findByName("aaa");
         // Product product = result.orElseThrow(); // nem kell if
-        Product product = result.orElse(new Product()); // nem kell if
+        // Product product = result.orElse(new Product()); // nem kell if
 
         // return (List<Product>) productRepository.findAll();
         return productRepository.findByOrderByNameDesc();
+    }
+
+    public List<Product> getExpensiveProducts() {
+        return productRepository.findByPriceGreaterThanEqualOrderByPriceDesc(10000);
     }
 
 }
