@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Új termék</title>
+</head>
+<body>
+<!-- action-t csak akkor kell beállítani, ha változik az URL -->
+<form data-th-action="@{/product/create}" method="post" data-th-object="${product}">
+    <table>
+        <tr>
+            <th>Név:</th>
+            <td><input type="text" data-th-field="*{name}"></td>
+        </tr>
+        <tr>
+            <th>Leírás:</th>
+            <td><input type="text" data-th-field="*{description}"></td>
+        </tr>
+        <tr>
+            <th>Ár:</th>
+            <td><input type="number" data-th-field="*{price}"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Létrehozás</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

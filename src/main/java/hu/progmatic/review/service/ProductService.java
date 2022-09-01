@@ -50,6 +50,10 @@ public class ProductService {
         reviewRepository.save(review2);
     }
 
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    }
+
     public List<Product> getAllProducts() {
         // Optional<Product> result = productRepository.findByName("aaa");
         // Product product = result.orElseThrow(); // nem kell if
