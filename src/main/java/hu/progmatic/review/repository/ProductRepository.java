@@ -8,6 +8,8 @@ import java.util.Optional;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
+    List<Product> findByOrderByNameDesc();
+
     // https://www.baeldung.com/spring-data-derived-queries
     // SELECT * FROM product WHERE name = :name;
     Optional<Product> findByName(String name);

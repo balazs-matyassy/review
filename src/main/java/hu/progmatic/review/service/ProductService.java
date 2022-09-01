@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 // magasabb szintű funkciók
 @Service
@@ -50,7 +51,12 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-        return (List<Product>) productRepository.findAll();
+        Optional<Product> result = productRepository.findByName("aaa");
+        // Product product = result.orElseThrow(); // nem kell if
+        Product product = result.orElse(new Product()); // nem kell if
+
+        // return (List<Product>) productRepository.findAll();
+        return productRepository.findByOrderByNameDesc();
     }
 
 }
